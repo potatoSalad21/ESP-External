@@ -9,7 +9,7 @@ private:
 	HANDLE hProc {};
 
 public:
-	Memory(const char* name);
+	Memory(const char* name) noexcept;
 
 	DWORD getProcessId()
 	{
