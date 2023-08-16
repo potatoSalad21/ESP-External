@@ -1,6 +1,6 @@
 #include "memory.h"
-#include <thread>
 #include <iostream>
+#include <thread>
 
 namespace offsets
 {
@@ -51,7 +51,7 @@ int main()
 			const auto entity = mem.Read<std::uintptr_t>(client + offsets::dwEntityList + i * 0x10);
 
 			// checking if entity obj's team number is the same as player's team number
-			if (mem.Read<std::uintptr_t>(entity + offsets::m_iTeamNum) == mem.Read<std::uintptr_t>(localPlayer + offsets::m_iTeamNum))
+			if (mem.Read<std::int32_t>(entity + offsets::m_iTeamNum) == mem.Read<std::int32_t>(localPlayer + offsets::m_iTeamNum))
 				continue;
 
 			const auto glowIndex = mem.Read<std::int32_t>(entity + offsets::m_iGlowIndex);

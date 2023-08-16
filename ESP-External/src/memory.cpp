@@ -1,5 +1,4 @@
 #include "memory.h"
-#include <Windows.h>
 #include <TlHelp32.h>
 
 Memory::Memory(const char* name)
@@ -48,10 +47,4 @@ uintptr_t Memory::getModuleAddress(const char* name)
 
 	CloseHandle(mSnap);
 	return module;
-}
-
-Memory::~Memory()
-{
-	if (this->hProc)
-		CloseHandle(hProc);
 }
